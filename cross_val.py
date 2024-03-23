@@ -43,7 +43,7 @@ n_lag = 12
 X, y = create_dataset(data_scaled, n_lag)
 X = X.reshape(X.shape[0], 1, X.shape[1])
 
-def evaluate_model(model_class, X, y, scaler, n_splits=6, num_epochs=100, learning_rate=0.001):
+def evaluate_model(model_class, X, y, scaler, n_splits=6, num_epochs=1000, learning_rate=0.001):
     """
     Trains the model and evaluates it using Time Series Cross-Validation.
     Parameters:
@@ -64,7 +64,7 @@ def evaluate_model(model_class, X, y, scaler, n_splits=6, num_epochs=100, learni
         X_train, X_test = X[train_index], X[test_index]
         y_train, y_test = y[train_index], y[test_index]
         
-        model = model_class(units=50, num_epochs=num_epochs, learning_rate=learning_rate)
+        model = model_class(units=12, num_epochs=num_epochs, learning_rate=learning_rate)
         model.fit(X_train, y_train)
         test_predict = model.predict(X_test)
         
@@ -77,9 +77,9 @@ def evaluate_model(model_class, X, y, scaler, n_splits=6, num_epochs=100, learni
     return rmse_scores
 
 # Run the models
-rnn_rmse_scores = evaluate_model(SimpleRNNRegression, X, y, scaler, num_epochs=100)
-lstm_rmse_scores = evaluate_model(LSTMRegression, X, y, scaler, num_epochs=100)
-gru_rmse_scores = evaluate_model(GRURegression, X, y, scaler, num_epochs=100)
+rnn_rmse_scores = evaluate_model(SimpleRNNRegression, X, y, scaler, num_epochs=1000)
+lstm_rmse_scores = evaluate_model(LSTMRegression, X, y, scaler, num_epochs=1000)
+gru_rmse_scores = evaluate_model(GRURegression, X, y, scaler, num_epochs=1000)
 
 # Evaluate RNN Model
 print("RNN RMSE scores:", rnn_rmse_scores)
