@@ -1,7 +1,7 @@
 # FYS5429 Project 1
 
 Generall explenation
-- Looking at temperature data with different RNN´s made with pytortch. 
+- Looking at temperature data with different RNN´s made with kereas. 
 
 
 ### Requirements
@@ -9,7 +9,10 @@ To run the python programs, the following python packages must be installed
 
 
 ### Structure
-- 
+- data_processing.py :
+- models.py : 
+- run_models.py:
+- cross_val.py: 
 
 ### Run code
 To successfully execute the code, please note that you might need to modify the file path in the script to correctly access the data file located in the 'Data' folder. Ensure that all required packages are installed, and then enter the following command in the terminal to run the codes: 
