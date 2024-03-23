@@ -23,7 +23,13 @@ To successfully execute the code, please note that you might need to modify the 
 
 ```bash
 python3 data_processing.py
+```
+
+```bash
 python3 run_models.py
+```
+
+```bash
 python3 cross_val.py
 ```
 
